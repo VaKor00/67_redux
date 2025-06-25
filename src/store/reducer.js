@@ -1,7 +1,10 @@
+import { type } from "@testing-library/user-event/dist/type";
+
 const initialState = {
   code: '1337',
   value: '',
-  bg: '#282c34'
+  bg: '#282c34',
+  type: 'password'
 };
 
   const reducer = (state = initialState, action) => {
@@ -11,6 +14,7 @@ const initialState = {
       return {
         code: state.code,
         bg: '#282c34',
+        type: 'password',
         value: action.payload
       }
     }
@@ -20,6 +24,7 @@ const initialState = {
       return {
         code: state.code,
         bg: '#282c34',
+        type: 'password',
         value: ''
       }
     }
@@ -29,6 +34,7 @@ const initialState = {
       return {  
         code: state.code,
         bg: state.bg,
+        type: 'password',
         value: state.value + action.payload
       }; 
     }
@@ -37,6 +43,7 @@ const initialState = {
       return {  
         code: state.code,
         bg: state.bg,
+        type: 'password',
         value: state.value.slice(0, -1)
       }; 
   }
@@ -45,7 +52,8 @@ const initialState = {
     {
       return {  
         code: state.code,
-        bg: '#058f00', 
+        bg: '#058f00',
+        type: '', 
         value: "Access Granted"
       }; 
     }
@@ -54,6 +62,7 @@ const initialState = {
       return {  
         code: state.code,
         bg: '#c40000',
+        type: '',
         value: "ERROR"
       }; 
   }

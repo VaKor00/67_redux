@@ -6,7 +6,8 @@ const mapStateToProps = state => {
   return {
     code: state.code, // код (спойлер: 1337)
     value: state.value, // ввод кода
-    bg: state.bg // цвет для изменения фона
+    bg: state.bg, // цвет для изменения фона
+    type: state.type // тип инпута (пусто или password)
   };
 };
 
@@ -34,8 +35,7 @@ class Keyboard extends Component {
 
       <div className="App" style={{backgroundColor: this.props.bg}}>
         <header className="App-header">
-          <input  readOnly={true} value={this.props.value}></input>
-          {/* type="password" */}
+          <input readOnly={true} type={this.props.type} value={this.props.value}></input>
           <table>
             <tbody>
               <tr>
